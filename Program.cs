@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Net.Http;
 
-// Classes de mapeamento do JSON
+
 public class Slip
 {
     public string? advice { get; set; }
@@ -13,10 +13,10 @@ public class AdviceResponse
     public Slip? slip { get; set; }
 }
 
-// Código principal (Top-Level Statements)
+
 const string API_ENDPOINT = "https://api.adviceslip.com/advice";
 
-// Cria o cliente HTTP
+
 using HttpClient client = new HttpClient();
 
 Console.WriteLine("Iniciando requisição para obter dados de um conselho:");
@@ -25,7 +25,6 @@ Console.WriteLine("-----------------------------------------------------");
 
 try
 {
-    // O await funciona diretamente aqui
     HttpResponseMessage response = await client.GetAsync(API_ENDPOINT);
     response.EnsureSuccessStatusCode();
 
@@ -45,4 +44,5 @@ try
 catch (Exception ex)
 {
     Console.WriteLine($"\nOcorreu um erro: {ex.Message}");
+
 }
